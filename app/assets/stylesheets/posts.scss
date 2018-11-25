@@ -1,5 +1,6 @@
 .post {
   background-color: white;
+  color: #4c2a3c;
   width: 100%;
   margin: 10px 0;
   border-radius: 10px;
@@ -7,28 +8,75 @@
 }
 
 .post h2 {
-  font-size: 24px;
+  font-size: 20px;
+  font-family: 'Assistant', sans-serif;
 }
 
 .post p {
-  font-weight: 100;
+  color: #333;
+  font-weight: lighter;
+  font-family: 'Assistant', sans-serif;
 }
 
 .post a {
+  font-family: 'Assistant', sans-serif;
   display: inline-block;
-  padding: 10px 15px;
-  background-color: orange;
+  padding: 6px 8px;
+  background-color: #cc8624;
   color: white;
   text-decoration: none;
-  border-radius: 20px;
-  font-size: 20px;
+  border-radius: 25px;
+  font-size: 14px;
 }
 
-#centered_orange {
-  text-align: center;
-  color: darkorange;
+#created {
+  background-color: white;
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 10px;
+  padding: 15px 30px;
 }
 
-#centered {
-  text-align: center;
+.field {
+  color: white;
+}
+
+#new_header {
+  font-family: 'Fira Sans', sans-serif;
+  color: white;
+  font-size: 12px;
+}
+
+#back {
+  font-family: 'Assistant', sans-serif;
+  font-size: 18px;
+  color: #b24f25;
+}
+
+.show h2 {
+  color: #b24f25;
+}
+
+.show p {
+  color: #333;
+}
+
+.edit {
+  color: white;
+  font-family: 'Assistant', sans-serif;
+}
+
+#show_buttons {
+  margin-left: 10px;
+  color: white;
+  font-family: 'Assistant', sans-serif;
+}
+
+#new_post {
+  font-family: 'Assistant', sans-serif;
+  color: #442038;
+  font-size: 16px;
+  text-align: right;
+  margin-right: -50px;
+  text-decoration: none;
 }

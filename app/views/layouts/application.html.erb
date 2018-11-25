@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+    <link href="https://fonts.googleapis.com/css?family=Assistant:200,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:200" rel="stylesheet">
   <head>
     <title>Your Rails App</title>
     <%= csrf_meta_tags %>
@@ -12,14 +14,16 @@
   <body>
   <header>
     <div class="container">
-      <img src="https://www.edigitalagency.com.au/wp-content/uploads/instagram-logo-text-blue-png.png" />
+      <div id="logo"><%= image_tag "logo.png" =%></div>
       <% if user_signed_in? %>
         <p class="info">
-          Logged in as <strong><%= current_user.email %></strong>.
-        </p>
-        <p class="black"> <%= link_to 'Home 🏠', root_path %> </p>
-        <p class="black"><%= link_to 'Edit profile', edit_user_registration_path%></p>
-        <p class="black"><%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
+          <i>Logged in as <%= current_user.first_name %> <%= current_user.last_name %></i>
+        </p>  
+        <div id="navbar">
+          <%= link_to 'HOME', root_path %>
+          <%= link_to 'EDIT PROFILE', edit_user_registration_path%>
+          <%= link_to "LOGOUT", destroy_user_session_path, method: :delete %> 
+        </div>
       <% else %>
         <p class="black><%= link_to "Sign up", new_user_registration_path  %></p>
         <p class="black><%= link_to "Login", new_user_session_path %></p>

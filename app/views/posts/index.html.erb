@@ -1,25 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<h1 id="centered_orange">Posts</h1>
 
 <table>
   <% if user_signed_in? %>
-    <p id="centered"><%= link_to 'New Post', new_post_path %></p>
+    <p id="new_post"><%= link_to 'make a new post', new_post_path %></p>
     <% @posts.each do |post| %>
       <div class="post">
         <h2><%= post.user.first_name %> <%= post.user.last_name %></p>
           <!-- <img src="#" /> -->
           <p><%= post.caption %></p>
-          <%= link_to "Like (#{post.users_liked.length})", like_path(post), method: :patch %>
+          <%= link_to "like (#{post.users_liked.length})", like_path(post), method: :patch %>
           <% if current_user.id == post.user.id %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to 'Delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'edit', edit_post_path(post) %>
+            <%= link_to 'delete', post, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
       </div>
     <% end %>
   <% else %>
     <p>
-      Please sign in to view posts!
+      Sign in to view posts!
     </p>
   <% end %>
 </table>
