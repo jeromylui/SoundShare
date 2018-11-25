@@ -44,8 +44,9 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    @post.caption = params[:post][:caption]
     respond_to do |format|
-      if @post.update(post_params)
+      if @post.save
         format.html { redirect_to posts_path, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
