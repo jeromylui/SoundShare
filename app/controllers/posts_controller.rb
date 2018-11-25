@@ -1,3 +1,4 @@
+require 'date'
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -27,7 +28,6 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     @post.caption = params[:post][:caption]
-
     respond_to do |format|
       if @post.save
         # Your code here! Send a request to the IFTTT link, with
@@ -45,6 +45,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     @post.caption = params[:post][:caption]
+    @post.created_at = DateTime.now.in_time_zone("Pacific Time (US & Canada)")
     respond_to do |format|
       if @post.save
         format.html { redirect_to posts_path, notice: 'Post was successfully updated.' }
