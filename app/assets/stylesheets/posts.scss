@@ -17,7 +17,18 @@
 .post a {
   display: inline-block;
   padding: 10px 15px;
-  background-color: rgb(104, 187, 208);
+  background-color: orange;
   color: white;
   text-decoration: none;
+  border-radius: 20px;
+  font-size: 20px;
+}
+
+#centered_orange {
+  text-align: center;
+  color: darkorange;
+}
+
+#centered {
+  text-align: center;
 }

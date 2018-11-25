@@ -24,10 +24,9 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    logger.debug "-------------------"
-    logger.debug "post_params #{post_params}"
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    @post.caption = params[:post][:caption]
 
     respond_to do |format|
       if @post.save
@@ -59,9 +58,14 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    Like.all.each do |like|
+      if like.post == @post
+        like.destroy
+      end
+    end
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to posts_url, notice: 'Post was successfully deleted.' }
       format.json { head :no_content }
     end
   end

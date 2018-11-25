@@ -23,7 +23,7 @@ a {
   color: #000;
 
   &:visited {
-    color: #666;
+    color: white;
   }
 
   &:hover {
@@ -81,4 +81,8 @@ div {
 
 label {
   display: block;
+}
+
+.black {
+  color: black;
 }

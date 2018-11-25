@@ -17,12 +17,12 @@
         <p class="info">
           Logged in as <strong><%= current_user.email %></strong>.
         </p>
-        <%= link_to 'Home 🏠', root_path %>
-        <%= link_to 'Edit profile', edit_user_registration_path%>
-        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <p class="black"> <%= link_to 'Home 🏠', root_path %> </p>
+        <p class="black"><%= link_to 'Edit profile', edit_user_registration_path%></p>
+        <p class="black"><%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
       <% else %>
-        <%= link_to "Sign up", new_user_registration_path  %>
-        <%= link_to "Login", new_user_session_path %>
+        <p class="black><%= link_to "Sign up", new_user_registration_path  %></p>
+        <p class="black><%= link_to "Login", new_user_session_path %></p>
       <% end %>
     </div>
 
