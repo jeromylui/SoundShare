@@ -16,7 +16,11 @@
             <% end %>
             <% @users.each do |user| %>
               <% if user.id == comment.user_id %>
-                <h4>  <%= user.first_name %> <%= user.last_name %> commented: <%= comment.content %></h4>
+                <h4>  <%= user.first_name %> <%= user.last_name %> commented: <%= comment.content %>
+                  <% if current_user.id == comment.user_id %>
+                    <%= link_to 'delete', comment, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </h4>
               <% end %>
             <% end %>
           <% end %>
