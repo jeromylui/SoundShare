@@ -7,14 +7,13 @@
         <h2><%= post.user.first_name %> <%= post.user.last_name %></h2>
         <p id="small-margin-top"><b><%= post.updated_at.in_time_zone("Pacific Time (US & Canada)").strftime("%m/%d/%Y %I:%M %p")%></b></p>
         <h4><%= post.caption %></h4>
-        <% @comments.each do |comment| %>
+        <% temp = true %>
+        <% @comments.reverse.each do |comment| %>
           <% if post.id == comment.post_id %>
-            <hr>
-            <% break %>
-          <% end %>
-        <% end %>
-        <% @comments.each do |comment| %>
-          <% if post.id == comment.post_id %>
+            <% if temp %>
+              <hr>
+              <% temp = false %>
+            <% end %>
             <% @users.each do |user| %>
               <% if user.id == comment.user_id %>
                 <h4>  <%= user.first_name %> <%= user.last_name %> commented: <%= comment.content %></h4>
