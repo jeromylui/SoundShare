@@ -11,22 +11,16 @@ class CommentsController < ApplicationController
   end
 
   def create
-    logger.debug "---------in create---------"
     @comment = Comment.new
-    logger.debug @comment.inspect
-    logger.debug params
     @comment.content = params[:comment][:content]
     @comment.user_id = current_user.id
     @comment.post_id = @@temp
 
     respond_to do |format|
       if @comment.save
-        logger.debug "---------worked---------"
         format.html { redirect_to posts_path, notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
       else
-        logger.debug "---------didnt--------"
-        logger.debug @comment.errors.inspect
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
@@ -36,6 +30,4 @@ class CommentsController < ApplicationController
   def show
     @comment = Comment.find(params[:id])
   end
-
-
 end
