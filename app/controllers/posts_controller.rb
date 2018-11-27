@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @comments = Comment.all
+    @users = User.all
   end
 
   # GET /posts/1
@@ -16,6 +18,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    #@comment = Comment.new(post_id: params[:post_id])
   end
 
   # GET /posts/1/edit
@@ -63,6 +66,11 @@ class PostsController < ApplicationController
     Like.all.each do |like|
       if like.post == @post
         like.destroy
+      end
+    end
+    Comment.all.each do |comment|
+      if comment.post == @post
+        comment.destroy
       end
     end
     @post.destroy
